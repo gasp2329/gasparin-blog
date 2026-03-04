@@ -6,7 +6,7 @@ import { slugify } from "@/lib/utils";
 
 type Params = { params: Promise<{ id: string }> };
 
-// GET /api/posts/[id] — get a single post
+// GET /api/posts/[id] — get a single published post
 export async function GET(_req: NextRequest, { params }: Params) {
   const { id } = await params;
   const post = await prisma.post.findUnique({
@@ -14,7 +14,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
     include: { author: { select: { name: true, image: true } }, tags: true },
   });
 
-  if (!post) {
+  if (!post || !post.published) {
     return NextResponse.json({ error: "Post not found" }, { status: 404 });
   }
 
@@ -24,7 +24,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
 // PUT /api/posts/[id] — update a post (admin only)
 export async function PUT(req: NextRequest, { params }: Params) {
   const session = await getServerSession(authOptions);
-  if (!session?.user) {
+  if (!session?.user || session.user.role !== "admin") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -48,17 +48,17 @@ export async function PUT(req: NextRequest, { params }: Params) {
   if (type !== undefined) updateData.type = type;
 
   if (tags && Array.isArray(tags)) {
-    const tagRecords = [];
-    for (const tagName of tags) {
-      const tagSlug = slugify(tagName);
-      const tag = await prisma.tag.upsert({
-        where: { slug: tagSlug },
-        update: {},
-        create: { name: tagName, slug: tagSlug },
-      });
-      tagRecords.push({ id: tag.id });
-    }
-    updateData.tags = { set: tagRecords };
+    const tagResults = await Promise.all(
+      tags.map((tagName: string) => {
+        const tagSlug = slugify(tagName);
+        return prisma.tag.upsert({
+          where: { slug: tagSlug },
+          update: {},
+          create: { name: tagName, slug: tagSlug },
+        });
+      })
+    );
+    updateData.tags = { set: tagResults.map((t) => ({ id: t.id })) };
   }
 
   const post = await prisma.post.update({
@@ -73,7 +73,7 @@ export async function PUT(req: NextRequest, { params }: Params) {
 // DELETE /api/posts/[id] — delete a post (admin only)
 export async function DELETE(_req: NextRequest, { params }: Params) {
   const session = await getServerSession(authOptions);
-  if (!session?.user) {
+  if (!session?.user || session.user.role !== "admin") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { randomBytes } from "crypto";
 
 // POST /api/subscribe — subscribe to the newsletter
 export async function POST(req: NextRequest) {
@@ -15,18 +14,23 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Already subscribed" });
   }
 
-  const confirmToken = randomBytes(32).toString("hex");
-
-  await prisma.subscriber.create({
-    data: { email, name: name || null, confirmToken },
+  // Single upsert: create if not exists, noop if already subscribed
+  const subscriber = await prisma.subscriber.upsert({
+    where: { email },
+    update: {},
+    create: {
+      email,
+      name: name || null,
+      // Auto-confirm until email flow is implemented
+      confirmed: true,
+      confirmToken: null,
+    },
   });
+
+  if (subscriber.confirmed) {
+    return NextResponse.json({ message: "Already subscribed" });
+  }
 
   // TODO: send confirmation email via Resend
-  // For now, auto-confirm
-  await prisma.subscriber.update({
-    where: { email },
-    data: { confirmed: true, confirmToken: null },
-  });
-
   return NextResponse.json({ message: "Subscribed successfully" }, { status: 201 });
 }

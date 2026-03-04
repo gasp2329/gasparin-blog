@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const tag = searchParams.get("tag");
   const page = parseInt(searchParams.get("page") || "1");
-  const limit = parseInt(searchParams.get("limit") || "10");
+  const limit = Math.min(parseInt(searchParams.get("limit") || "10"), 50); // cap at 50
 
   const where: Record<string, unknown> = { published: true };
   if (tag) {
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 // POST /api/posts — create a new post (admin only)
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
-  if (!session?.user) {
+  if (!session?.user || session.user.role !== "admin") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -52,18 +52,20 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "A post with this title already exists" }, { status: 409 });
   }
 
-  // Upsert tags
-  const tagRecords = [];
+  // Upsert tags in parallel
+  const tagRecords: { id: string }[] = [];
   if (tags && Array.isArray(tags)) {
-    for (const tagName of tags) {
-      const tagSlug = slugify(tagName);
-      const tag = await prisma.tag.upsert({
-        where: { slug: tagSlug },
-        update: {},
-        create: { name: tagName, slug: tagSlug },
-      });
-      tagRecords.push({ id: tag.id });
-    }
+    const tagResults = await Promise.all(
+      tags.map((tagName: string) => {
+        const tagSlug = slugify(tagName);
+        return prisma.tag.upsert({
+          where: { slug: tagSlug },
+          update: {},
+          create: { name: tagName, slug: tagSlug },
+        });
+      })
+    );
+    tagRecords.push(...tagResults.map((t) => ({ id: t.id })));
   }
 
   const post = await prisma.post.create({
@@ -77,7 +79,7 @@ export async function POST(req: NextRequest) {
       featured: featured ?? false,
       type: type || "article",
       publishedAt: published ? new Date() : null,
-      authorId: (session.user as { id: string }).id,
+      authorId: session.user.id,
       tags: { connect: tagRecords },
     },
     include: { tags: true },

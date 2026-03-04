@@ -6,9 +6,10 @@ import { readingTime } from "@/lib/utils";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: revalidate every 60 seconds
 
 export async function generateMetadata({
+
   params,
 }: {
   params: Promise<{ slug: string }>;
