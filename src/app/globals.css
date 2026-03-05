@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  color-scheme: light;
+}
+
 @theme inline {
   --color-background: #fafaf9;
   --color-foreground: #1c1917;

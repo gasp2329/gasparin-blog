@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: "light" }}>
       <body className="antialiased min-h-screen flex flex-col">
         <Providers>
           <Header />
