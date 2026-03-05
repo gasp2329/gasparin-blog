@@ -296,6 +296,24 @@ body {
 .status-yellow { background: #fef9c3; color: #854d0e; }
 .status-red    { background: #fee2e2; color: #991b1b; }
 
+/* DRI narrative status column */
+th.col-status, td.col-status {
+  min-width: 220px;
+  max-width: 320px;
+  background: #fdfcfb;
+  border-left: 2px solid var(--color-border) !important;
+  font-style: italic;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+th.col-status {
+  font-style: normal;
+  color: var(--color-foreground);
+  background: #f1f0ef;
+}
+
 /* Table styles — used in both rendered posts and the editor */
 .prose table, .tiptap table {
   width: 100%;

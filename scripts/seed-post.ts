@@ -96,6 +96,7 @@ const content = `
       <th>Capabilities</th>
       <th>North Star Metric</th>
       <th>Cycle Focus</th>
+      <th class="col-status">DRI Status</th>
     </tr>
   </thead>
   <tbody>
@@ -106,6 +107,7 @@ const content = `
       <td>2</td>
       <td>Revenue per Device</td>
       <td>Auction latency reduction; fill rate improvement</td>
+      <td class="col-status">Cycle pacing well. Latency is down 9% through sprint 1 and fill rate is trending ahead of target. No blockers; team is focused on bid density work next sprint.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-yellow">At Risk</span></td>
@@ -114,6 +116,7 @@ const content = `
       <td>2</td>
       <td>SDK Crash-Free Rate</td>
       <td>Crash rate reduction blocked by OEM dependency</td>
+      <td class="col-status">Crash rate fix is blocked on firmware access from OEM Partner A—escalation in progress. Uptime target remains achievable. Next step: leadership alignment call scheduled for end of week.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -122,6 +125,7 @@ const content = `
       <td>2</td>
       <td>eCPM × Fill Rate</td>
       <td>Pricing model v2 rollout; bid prediction accuracy</td>
+      <td class="col-status">Pricing model v2 launched to 20% of traffic with positive early signal—eCPM up 4%. Bid timeout reduction on track. Full rollout gated on monitoring threshold review this week.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -130,6 +134,7 @@ const content = `
       <td>2</td>
       <td>Model Lift vs Baseline</td>
       <td>Model retraining cadence; IVT anomaly detection v3</td>
+      <td class="col-status">Retraining pipeline is live and running weekly. Anomaly detection v3 is in QA—expected to ship by sprint 2. Lift vs baseline at +6%; target is +12% by cycle end.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-red">Off Track</span></td>
@@ -138,6 +143,7 @@ const content = `
       <td>1</td>
       <td>Activated Devices</td>
       <td>LATAM activation behind; OEM integration delayed</td>
+      <td class="col-status">LATAM activation is 3 points behind plan due to carrier provisioning delays. OEM integration slipped two weeks—contract amendment required. Revising cycle commitment; updated targets to leadership by Friday.</td>
     </tr>
   </tbody>
 </table>
@@ -153,6 +159,7 @@ const content = `
       <th>Cycle Commitments</th>
       <th>DRI</th>
       <th>Team</th>
+      <th class="col-status">DRI Status</th>
     </tr>
   </thead>
   <tbody>
@@ -164,6 +171,7 @@ const content = `
       <td>Reduce auction latency 15% · Increase fill rate 5% · Improve bid density 8%</td>
       <td>VP Monetization</td>
       <td>16</td>
+      <td class="col-status">Latency work is ahead of schedule at -9% through sprint 1. Fill rate trending at +3%—on pace. Bid density initiative kicks off next sprint with full team allocation.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -173,6 +181,7 @@ const content = `
       <td>Increase activation rate 4% · Reduce uninstall rate 6% · Improve placement CTR 7%</td>
       <td>Director, Device Growth</td>
       <td>12</td>
+      <td class="col-status">Activation rate up 2.1% mid-cycle; uninstall reduction experiment running on 3 OEM partners. CTR improvements blocked pending creative refresh from partner—expected week 4.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-yellow">At Risk</span></td>
@@ -182,6 +191,7 @@ const content = `
       <td>Reduce crash rate 30% · Achieve 99.95% uptime · Cut integration defects 25%</td>
       <td>VP Engineering</td>
       <td>18</td>
+      <td class="col-status">Root cause of the top crash cluster is identified but the fix requires OEM firmware access—currently blocked. Uptime and defect targets remain achievable. Escalation to VP Partnerships initiated; resolution expected by sprint 3.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -191,6 +201,7 @@ const content = `
       <td>Reduce P95 latency 20% · Optimize edge caching · Improve rendering efficiency</td>
       <td>Eng Director, Performance</td>
       <td>14</td>
+      <td class="col-status">P95 latency down 11% after edge cache rollout to 6 regions. Rendering efficiency work starts sprint 2. On pace to hit all three commitments; no blockers.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -200,6 +211,7 @@ const content = `
       <td>Deploy pricing model v2 · Improve bid prediction accuracy 10% · Reduce bid timeouts 15%</td>
       <td>Head of Marketplace</td>
       <td>15</td>
+      <td class="col-status">Pricing model v2 is live on 20% of traffic showing +4% eCPM lift. Bid prediction accuracy at +6% with more gains expected as model stabilizes. Timeout reduction on track—full rollout pending monitoring sign-off.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-yellow">At Risk</span></td>
@@ -209,6 +221,7 @@ const content = `
       <td>Improve reporting latency · Launch performance insights v1 · Reduce billing disputes 20%</td>
       <td>Director, Advertiser Ops</td>
       <td>11</td>
+      <td class="col-status">Reporting latency improvements shipped but insights v1 slipped due to a data pipeline dependency on the Data team. Billing dispute reduction is on track. Reprioritizing sprint 2 to recover insights launch by cycle end.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -218,6 +231,7 @@ const content = `
       <td>Increase prediction accuracy 12% · Reduce model drift · Improve retraining cadence</td>
       <td>Head of Data Science</td>
       <td>15</td>
+      <td class="col-status">Weekly retraining pipeline is live and stable. Prediction accuracy at +6% mid-cycle—on pace for +12% by end. Drift monitoring dashboards shipped sprint 1; no anomalies detected.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-green">On Track</span></td>
@@ -227,6 +241,7 @@ const content = `
       <td>Reduce IVT 40% · Deploy anomaly detection v3 · Improve detection latency 25%</td>
       <td>Director, Trust &amp; Safety</td>
       <td>11</td>
+      <td class="col-status">IVT rate down 22% through new signal scoring model shipped week 1. Anomaly detection v3 in final QA—targeting sprint 2 release. Detection latency improvements bundled into v3 release.</td>
     </tr>
     <tr>
       <td><span class="status-badge status-red">Off Track</span></td>
@@ -236,6 +251,7 @@ const content = `
       <td>Launch 2 OEM integrations · Increase LATAM activation 8% · Improve onboarding time 20%</td>
       <td>VP Growth</td>
       <td>13</td>
+      <td class="col-status">OEM integration 1 is on track; integration 2 slipped due to contract amendment. LATAM activation is 3 points behind plan—carrier provisioning delays are the root cause. Revised commitments and recovery plan being submitted to leadership this week.</td>
     </tr>
   </tbody>
 </table>
