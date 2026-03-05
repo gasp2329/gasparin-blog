@@ -84,53 +84,60 @@ const content = `
 <p>Most importantly, Product and Engineering operate with a shared execution system that strengthens how we build—measured, disciplined, and continuously improving.</p>
 
 <h2>Sample Structure</h2>
+<p>The tables below represent how each platform and capability would appear in a live dashboard — updated each cycle to reflect current health, ownership, and progress against commitments.</p>
 
-<h3>Platform Portfolio View (Exec View)</h3>
+<h3>Platform Portfolio View</h3>
 <table>
   <thead>
     <tr>
+      <th>Health</th>
       <th>Platform</th>
-      <th>Platform Objective</th>
-      <th>Platform Leader</th>
-      <th># of Capabilities</th>
-      <th>Primary Business Outcome</th>
+      <th>Leader</th>
+      <th>Capabilities</th>
+      <th>North Star Metric</th>
+      <th>Cycle Focus</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Monetization</td>
-      <td>Maximize revenue per device and placement yield</td>
+      <td><span class="status-badge status-green">On Track</span></td>
+      <td><strong>Monetization</strong></td>
       <td>VP Monetization</td>
       <td>2</td>
       <td>Revenue per Device</td>
+      <td>Auction latency reduction; fill rate improvement</td>
     </tr>
     <tr>
-      <td>SDK &amp; Performance</td>
-      <td>Ensure SDK reliability, scalability, and low latency</td>
+      <td><span class="status-badge status-yellow">At Risk</span></td>
+      <td><strong>SDK &amp; Performance</strong></td>
       <td>VP Engineering</td>
       <td>2</td>
-      <td>Stability &amp; Performance</td>
+      <td>SDK Crash-Free Rate</td>
+      <td>Crash rate reduction blocked by OEM dependency</td>
     </tr>
     <tr>
-      <td>Marketplace &amp; Demand</td>
-      <td>Optimize auction efficiency and advertiser performance</td>
+      <td><span class="status-badge status-green">On Track</span></td>
+      <td><strong>Marketplace &amp; Demand</strong></td>
       <td>Head of Marketplace</td>
       <td>2</td>
-      <td>Yield &amp; Advertiser Retention</td>
+      <td>eCPM × Fill Rate</td>
+      <td>Pricing model v2 rollout; bid prediction accuracy</td>
     </tr>
     <tr>
-      <td>Data &amp; Optimization</td>
-      <td>Improve ML-driven pricing, targeting, and fraud detection</td>
+      <td><span class="status-badge status-green">On Track</span></td>
+      <td><strong>Data &amp; Optimization</strong></td>
       <td>Head of Data Science</td>
       <td>2</td>
-      <td>Margin &amp; Quality Lift</td>
+      <td>Model Lift vs Baseline</td>
+      <td>Model retraining cadence; IVT anomaly detection v3</td>
     </tr>
     <tr>
-      <td>Growth &amp; Distribution</td>
-      <td>Expand device footprint and improve activation performance</td>
+      <td><span class="status-badge status-red">Off Track</span></td>
+      <td><strong>Growth &amp; Distribution</strong></td>
       <td>VP Growth</td>
       <td>1</td>
       <td>Activated Devices</td>
+      <td>LATAM activation behind; OEM integration delayed</td>
     </tr>
   </tbody>
 </table>
@@ -139,94 +146,94 @@ const content = `
 <table>
   <thead>
     <tr>
+      <th>Health</th>
       <th>Platform</th>
       <th>Capability</th>
-      <th>Mission</th>
       <th>North Star Metric</th>
-      <th>3–5 Cycle Priorities</th>
+      <th>Cycle Commitments</th>
       <th>DRI</th>
-      <th>Team Size</th>
+      <th>Team</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>Monetization</td>
-      <td>Yield Optimization</td>
-      <td>Improve revenue per device through auction efficiency and performance improvements</td>
-      <td>Revenue per Device (RPD)</td>
-      <td>1) Reduce auction latency 15% 2) Increase fill rate 5% 3) Improve bid density 8%</td>
+      <td><strong>Yield Optimization</strong></td>
+      <td>Revenue per Device</td>
+      <td>Reduce auction latency 15% · Increase fill rate 5% · Improve bid density 8%</td>
       <td>VP Monetization</td>
       <td>16</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>Monetization</td>
-      <td>Preload &amp; Placement Optimization</td>
-      <td>Maximize activation and revenue from preloaded placements across OEM/carrier partners</td>
+      <td><strong>Preload &amp; Placement</strong></td>
       <td>Revenue per Activated Device</td>
-      <td>1) Increase activation rate 4% 2) Reduce uninstall rate 6% 3) Improve placement CTR 7%</td>
-      <td>Director Device Growth</td>
+      <td>Increase activation rate 4% · Reduce uninstall rate 6% · Improve placement CTR 7%</td>
+      <td>Director, Device Growth</td>
       <td>12</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-yellow">At Risk</span></td>
       <td>SDK &amp; Performance</td>
-      <td>SDK Reliability</td>
-      <td>Ensure SDK stability and uptime across OEM and carrier integrations</td>
+      <td><strong>SDK Reliability</strong></td>
       <td>SDK Crash-Free Rate</td>
-      <td>1) Reduce crash rate 30% 2) Achieve 99.95% uptime 3) Cut integration defects 25%</td>
+      <td>Reduce crash rate 30% · Achieve 99.95% uptime · Cut integration defects 25%</td>
       <td>VP Engineering</td>
       <td>18</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>SDK &amp; Performance</td>
-      <td>Latency &amp; Load Performance</td>
-      <td>Improve ad load speed and overall device performance impact</td>
+      <td><strong>Latency &amp; Load Performance</strong></td>
       <td>Median Ad Load Time</td>
-      <td>1) Reduce P95 latency 20% 2) Optimize edge caching 3) Improve rendering efficiency</td>
-      <td>Eng Director Performance</td>
+      <td>Reduce P95 latency 20% · Optimize edge caching · Improve rendering efficiency</td>
+      <td>Eng Director, Performance</td>
       <td>14</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>Marketplace &amp; Demand</td>
-      <td>Auction Optimization</td>
-      <td>Improve auction efficiency to maximize yield and advertiser ROI</td>
+      <td><strong>Auction Optimization</strong></td>
       <td>eCPM × Fill Rate</td>
-      <td>1) Deploy pricing model v2 2) Improve bid prediction accuracy 10% 3) Reduce bid timeouts 15%</td>
+      <td>Deploy pricing model v2 · Improve bid prediction accuracy 10% · Reduce bid timeouts 15%</td>
       <td>Head of Marketplace</td>
       <td>15</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-yellow">At Risk</span></td>
       <td>Marketplace &amp; Demand</td>
-      <td>Advertiser Experience</td>
-      <td>Improve campaign transparency and advertiser retention</td>
+      <td><strong>Advertiser Experience</strong></td>
       <td>Advertiser Retention Rate</td>
-      <td>1) Improve reporting latency 2) Launch performance insights v1 3) Reduce billing disputes 20%</td>
-      <td>Director Advertiser Ops</td>
+      <td>Improve reporting latency · Launch performance insights v1 · Reduce billing disputes 20%</td>
+      <td>Director, Advertiser Ops</td>
       <td>11</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>Data &amp; Optimization</td>
-      <td>ML Pricing &amp; Targeting</td>
-      <td>Improve model-driven optimization of bids and placements</td>
+      <td><strong>ML Pricing &amp; Targeting</strong></td>
       <td>Model Lift vs Baseline</td>
-      <td>1) Increase prediction accuracy 12% 2) Reduce model drift 3) Improve retraining cadence</td>
+      <td>Increase prediction accuracy 12% · Reduce model drift · Improve retraining cadence</td>
       <td>Head of Data Science</td>
       <td>15</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-green">On Track</span></td>
       <td>Data &amp; Trust</td>
-      <td>Fraud &amp; Traffic Quality</td>
-      <td>Detect and reduce invalid traffic to protect advertiser trust</td>
+      <td><strong>Fraud &amp; Traffic Quality</strong></td>
       <td>Invalid Traffic Rate</td>
-      <td>1) Reduce IVT 40% 2) Deploy anomaly detection v3 3) Improve detection latency 25%</td>
-      <td>Director Trust &amp; Safety</td>
+      <td>Reduce IVT 40% · Deploy anomaly detection v3 · Improve detection latency 25%</td>
+      <td>Director, Trust &amp; Safety</td>
       <td>11</td>
     </tr>
     <tr>
+      <td><span class="status-badge status-red">Off Track</span></td>
       <td>Growth &amp; Distribution</td>
-      <td>Device Expansion</td>
-      <td>Expand active device footprint across OEM and carrier partners</td>
+      <td><strong>Device Expansion</strong></td>
       <td>Activated Devices</td>
-      <td>1) Launch 2 OEM integrations 2) Increase LATAM activation 8% 3) Improve onboarding time 20%</td>
+      <td>Launch 2 OEM integrations · Increase LATAM activation 8% · Improve onboarding time 20%</td>
       <td>VP Growth</td>
       <td>13</td>
     </tr>
