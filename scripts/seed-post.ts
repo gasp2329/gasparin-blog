@@ -24,7 +24,19 @@ const content = `
 <h2>3. How the Capability Model Works</h2>
 <p>Each capability operates on a structured <strong>6-week execution cycle</strong>, which consists of three consecutive 2-week sprints. Six weeks is long enough to move meaningful work and short enough to correct course before problems grow.</p>
 <p>The cycle follows a simple loop:</p>
-<p><strong>Commit → Deliver → Assess → Learn → Adjust → Recommit</strong></p>
+<div class="cycle-flow">
+  <div class="cycle-step"><span class="cycle-num">1</span><span class="cycle-label">Commit</span></div>
+  <div class="cycle-arrow" aria-hidden="true"></div>
+  <div class="cycle-step"><span class="cycle-num">2</span><span class="cycle-label">Deliver</span></div>
+  <div class="cycle-arrow" aria-hidden="true"></div>
+  <div class="cycle-step"><span class="cycle-num">3</span><span class="cycle-label">Assess</span></div>
+  <div class="cycle-arrow" aria-hidden="true"></div>
+  <div class="cycle-step"><span class="cycle-num">4</span><span class="cycle-label">Learn</span></div>
+  <div class="cycle-arrow" aria-hidden="true"></div>
+  <div class="cycle-step"><span class="cycle-num">5</span><span class="cycle-label">Adjust</span></div>
+  <div class="cycle-arrow" aria-hidden="true"></div>
+  <div class="cycle-step cycle-step--end"><span class="cycle-num">6</span><span class="cycle-label">Recommit</span></div>
+</div>
 <ul>
   <li><strong>What did we commit to?</strong> The measurable outcomes agreed for the cycle.</li>
   <li><strong>What changed?</strong> The measurable shifts relative to commitments.</li>

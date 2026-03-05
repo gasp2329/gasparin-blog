@@ -197,6 +197,75 @@ body {
 .tiptap a { color: var(--color-accent); text-decoration: underline; }
 .tiptap hr { border-color: var(--color-border); margin: 2rem 0; }
 
+/* Cycle flow diagram */
+.cycle-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: #fffbf5;
+  border: 1px solid #e8d5b0;
+  border-radius: 0.75rem;
+  font-family: var(--font-sans);
+}
+
+.cycle-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cycle-num {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.cycle-step--end .cycle-num {
+  background: #92400e;
+}
+
+.cycle-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cycle-arrow {
+  width: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  position: relative;
+  margin-bottom: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cycle-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid #f59e0b;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
 /* Table styles — used in both rendered posts and the editor */
 .prose table, .tiptap table {
   width: 100%;
