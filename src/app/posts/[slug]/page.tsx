@@ -46,22 +46,27 @@ export default async function PostPage({
   const time = readingTime(post.content);
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-10">
+    <article className="mx-auto max-w-2xl px-6 py-12">
       {/* Back link */}
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors mb-8"
+        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors mb-10"
       >
         <ArrowLeft size={16} />
-        Back to all posts
+        All posts
       </Link>
 
       {/* Header */}
-      <header className="mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4">
+      <header className="mb-10 pb-10 border-b border-border">
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-snug mb-5" style={{ fontFamily: "var(--font-sans)" }}>
           {post.title}
         </h1>
-        <div className="flex items-center gap-4 text-sm text-muted">
+        {post.excerpt && (
+          <p className="text-lg text-muted leading-relaxed mb-5" style={{ fontFamily: "var(--font-sans)" }}>
+            {post.excerpt}
+          </p>
+        )}
+        <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
           <span>{post.author.name || "Author"}</span>
           <span>·</span>
           {date && <time dateTime={post.publishedAt?.toISOString()}>{date}</time>}
@@ -100,7 +105,7 @@ export default async function PostPage({
 
       {/* Content */}
       <div
-        className="prose prose-lg max-w-none"
+        className="prose max-w-none mt-10"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
 
