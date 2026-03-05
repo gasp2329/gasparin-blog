@@ -2,12 +2,12 @@
 import { prisma } from "../src/lib/prisma";
 
 const content = `
-<h2>1. Why We Are Introducing the Capability Model</h2>
+<h2>Why We Are Introducing the Capability Model</h2>
 <p>As DT scales, our systems and teams become more interconnected. Monetization depends on reliability. Reliability affects partner trust. Latency impacts yield. A decision in one area often affects several others. Without clear structure, ownership can blur, priorities can compete, and teams can move in parallel instead of together.</p>
 <p>The Capability Model gives us a simpler and more disciplined way to operate. Instead of organizing around shifting projects or quarterly resets, we organize around durable outcome domains called <strong>capabilities</strong>. Each capability has a clearly accountable owner and runs in focused 6-week cycles. Teams make explicit, measurable commitments, review real progress, surface risks early, and adjust before issues compound.</p>
 <p>This model creates clarity at every level. Engineers understand the outcome they are contributing to. Product is accountable for improving defined, measurable outcomes—not just delivering features. Leaders see progress grounded in performance data, not slide volume. Most importantly, it strengthens how we work together—aligning faster, reducing cross-team friction, and improving our ability to deliver consistently.</p>
 
-<h2>2. What a Capability Is</h2>
+<h2>What a Capability Is</h2>
 <p>A capability is a durable domain of outcome ownership. It represents an area of the business or platform that we are responsible for improving continuously. It is not a short-lived initiative or a loose grouping of features. It is a defined responsibility tied to measurable results.</p>
 <ul>
   <li>Anchor the capability to a clear <strong>North Star metric</strong>, with every commitment tied to measurable performance movement tracked cycle over cycle.</li>
@@ -21,7 +21,7 @@ const content = `
 <p>Capabilities persist even as roadmaps evolve and priorities shift. As the business changes, ownership of critical outcomes remains stable—locking accountability in place, preventing quarterly resets from disrupting momentum, and ensuring progress compounds over time.</p>
 <blockquote>Clarity of ownership is foundational. When responsibility is explicit and tied to metrics, alignment improves and execution becomes more decisive.</blockquote>
 
-<h2>3. How the Capability Model Works</h2>
+<h2>How the Capability Model Works</h2>
 <p>Each capability operates on a structured <strong>6-week execution cycle</strong>, which consists of three consecutive 2-week sprints. Six weeks is long enough to move meaningful work and short enough to correct course before problems grow.</p>
 <p>The cycle follows a simple loop:</p>
 <div class="cycle-flow">
@@ -45,7 +45,7 @@ const content = `
 </ul>
 <p>Commitments must be measurable. If an outcome cannot be tracked, it is not ready to be committed.</p>
 
-<h2>4. The 6-Week Capability Sync</h2>
+<h2>The 6-Week Capability Sync</h2>
 <p>The 6-week sync is a focused review of outcome ownership. It is not a demo session, backlog walkthrough, or roadmap presentation. It is a disciplined discussion about measurable progress, tradeoffs, and next commitments.</p>
 <p>Attendance is limited to the capability DRI and the specific team members the DRI designates as necessary for the discussion. The group will be intentionally kept small to allow for direct, open, and accountable conversations.</p>
 <p>Each sync covers:</p>
@@ -60,7 +60,7 @@ const content = `
 </ol>
 <blockquote>Execution is measured by outcomes, not activity. Performance must be visible, understandable, and actionable.</blockquote>
 
-<h2>5. Operating Discipline &amp; Governance</h2>
+<h2>Operating Discipline &amp; Governance</h2>
 <ul>
   <li>6-week execution cycle with measurable commitments, structured as three 2-week sprints.</li>
   <li>Pre-read shared 48 hours before executive review.</li>
@@ -71,7 +71,7 @@ const content = `
 <p>Each capability will maintain a <strong>live dashboard</strong> tracking its North Star metric, supporting indicators, cycle commitments, and progress against those commitments. Dashboards provide real-time visibility and allow performance to be evaluated cycle over cycle.</p>
 <p>The Capability Model replaces fragmented status updates with a single, structured execution rhythm grounded in measurable performance. It increases coordination and transparency without increasing overhead.</p>
 
-<h2>6. What Success Looks Like</h2>
+<h2>What Success Looks Like</h2>
 <ul>
   <li>Ownership is unmistakable.</li>
   <li>Commitments are fewer, sharper, and measurable.</li>
