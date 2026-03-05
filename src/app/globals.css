@@ -85,3 +85,36 @@ body {
 .tiptap img { max-width: 100%; border-radius: 0.5rem; margin: 1rem 0; }
 .tiptap a { color: var(--color-accent); text-decoration: underline; }
 .tiptap hr { border-color: var(--color-border); margin: 2rem 0; }
+
+/* Table styles — used in both rendered posts and the editor */
+.prose table, .tiptap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  font-family: var(--font-sans);
+}
+.prose table th, .tiptap table th {
+  background: var(--color-surface-hover);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.875rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.prose table td, .tiptap table td {
+  padding: 0.6rem 0.875rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.prose table tr:nth-child(even), .tiptap table tr:nth-child(even) {
+  background: var(--color-surface);
+}
+.prose table tr:hover, .tiptap table tr:hover {
+  background: var(--color-surface-hover);
+}

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "npx tsx scripts/seed.ts",
+    "seed:post": "npx tsx scripts/seed-post.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {
