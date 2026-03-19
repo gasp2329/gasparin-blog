@@ -5,3 +5,4 @@ node_modules/
 src/generated/
 .env
 .env*.local
+.DS_Store
