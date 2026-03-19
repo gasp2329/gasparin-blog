@@ -37,18 +37,18 @@ export default function SubscribeForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-surface border border-border rounded-xl p-6 text-center">
-        <CheckCircle className="mx-auto text-green-600 mb-2" size={32} />
+      <div className="bg-surface border border-border rounded-xl p-5 text-center">
+        <CheckCircle className="mx-auto text-green-600 mb-2" size={28} />
         <p className="text-foreground font-medium">{message}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-surface border border-border rounded-xl p-6">
-      <div className="flex items-center gap-2 mb-2">
-        <Mail size={20} className="text-accent" />
-        <h3 className="font-semibold text-foreground">Subscribe</h3>
+    <div className="bg-surface border border-border rounded-xl p-5">
+      <div className="flex items-center gap-2 mb-1.5">
+        <Mail size={18} className="text-accent" />
+        <h3 className="text-sm font-semibold text-foreground">Subscribe</h3>
       </div>
       <p className="text-sm text-muted mb-4">Get new posts delivered to your inbox.</p>
       <form onSubmit={handleSubmit} className="flex gap-2">

@@ -9,12 +9,12 @@ export default function Header() {
 
   return (
     <header className="border-b border-border">
-      <div className="mx-auto max-w-3xl px-6 py-6 flex items-center justify-between">
+      <div className="mx-auto max-w-2xl px-5 py-3.5 flex items-center justify-between">
         <Link href="/" className="group">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">
+          <h1 className="text-[1.0625rem] font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">
             The Gasparin Blog
           </h1>
-          <p className="text-sm text-muted mt-0.5">Ideas, thoughts & things worth sharing</p>
+          <p className="text-xs text-muted mt-0">Ideas, thoughts & things worth sharing</p>
         </Link>
 
         <nav className="flex items-center gap-4">
@@ -24,21 +24,21 @@ export default function Header() {
                 href="/admin"
                 className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors"
               >
-                <LayoutDashboard size={16} />
+                <LayoutDashboard size={15} />
                 <span className="hidden sm:inline">Dashboard</span>
               </Link>
               <Link
                 href="/admin/posts/new"
-                className="flex items-center gap-1.5 text-sm bg-accent text-white px-3 py-1.5 rounded-lg hover:bg-accent-hover transition-colors"
+                className="flex items-center gap-1.5 text-sm bg-accent text-white px-2.5 py-1 rounded-md hover:bg-accent-hover transition-colors"
               >
-                <PenLine size={16} />
+                <PenLine size={15} />
                 <span className="hidden sm:inline">Write</span>
               </Link>
               <button
                 onClick={() => signOut()}
                 className="flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors"
               >
-                <LogOut size={16} />
+                <LogOut size={15} />
               </button>
             </>
           )}

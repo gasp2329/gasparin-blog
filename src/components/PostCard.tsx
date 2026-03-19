@@ -22,11 +22,11 @@ export default function PostCard({ post }: PostCardProps) {
   const excerpt = post.excerpt || stripHtml(post.content).slice(0, 200) + "...";
 
   return (
-    <article className="group py-8 border-b border-border last:border-b-0">
-      <div className="flex items-center gap-3 text-sm text-muted mb-2">
+    <article className="group py-5 border-b border-border last:border-b-0">
+      <div className="flex items-center gap-2 text-sm text-muted mb-1.5">
         {date && <time dateTime={post.publishedAt || ""}>{date}</time>}
         <span className="flex items-center gap-1">
-          <Clock size={14} />
+          <Clock size={13} />
           {time}
         </span>
         {post.type === "short" && (
@@ -37,19 +37,19 @@ export default function PostCard({ post }: PostCardProps) {
       </div>
 
       <Link href={`/posts/${post.slug}`} className="block">
-        <h2 className="text-xl font-bold tracking-tight text-foreground group-hover:text-accent transition-colors mb-2">
+        <h2 className="text-[0.9375rem] font-bold tracking-tight text-foreground group-hover:text-accent transition-colors mb-1">
           {post.title}
         </h2>
-        <p className="text-muted leading-relaxed font-serif">{excerpt}</p>
+        <p className="text-[0.8125rem] text-muted leading-relaxed font-serif">{excerpt}</p>
       </Link>
 
       {post.tags.length > 0 && (
-        <div className="flex gap-2 mt-3">
+        <div className="flex gap-2 mt-2">
           {post.tags.map((tag) => (
             <Link
               key={tag.id}
               href={`/?tag=${tag.slug}`}
-              className="text-xs px-2 py-1 rounded-full border border-border text-muted hover:text-foreground hover:border-foreground/30 transition-colors"
+              className="text-xs px-2 py-0.5 rounded-full border border-border text-muted hover:text-foreground hover:border-foreground/30 transition-colors"
             >
               {tag.name}
             </Link>

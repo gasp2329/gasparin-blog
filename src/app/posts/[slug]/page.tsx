@@ -46,27 +46,27 @@ export default async function PostPage({
   const time = readingTime(post.content);
 
   return (
-    <article className="mx-auto max-w-2xl px-6 py-12">
+    <article className="mx-auto max-w-2xl px-5 py-8">
       {/* Back link */}
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-foreground transition-colors mb-10"
+        className="inline-flex items-center gap-1 text-sm text-muted hover:text-foreground transition-colors mb-6"
       >
-        <ArrowLeft size={16} />
+        <ArrowLeft size={14} />
         All posts
       </Link>
 
       {/* Header */}
-      <header className="mb-10 pb-10 border-b border-border">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-snug mb-5" style={{ fontFamily: "var(--font-sans)" }}>
+      <header className="mb-8 pb-6 border-b border-border">
+        <h1 className="text-2xl sm:text-[1.75rem] font-extrabold tracking-tight leading-snug mb-3" style={{ fontFamily: "var(--font-sans)" }}>
           {post.title}
         </h1>
         {post.excerpt && (
-          <p className="text-lg text-muted leading-relaxed mb-5" style={{ fontFamily: "var(--font-sans)" }}>
+          <p className="text-[0.9375rem] text-muted leading-relaxed mb-3" style={{ fontFamily: "var(--font-sans)" }}>
             {post.excerpt}
           </p>
         )}
-        <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
           <span>{post.author.name || "Author"}</span>
           <span>·</span>
           {date && <time dateTime={post.publishedAt?.toISOString()}>{date}</time>}
@@ -105,12 +105,12 @@ export default async function PostPage({
 
       {/* Content */}
       <div
-        className="prose max-w-none mt-10"
+        className="prose max-w-none mt-6"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
 
       {/* Subscribe */}
-      <div className="mt-16">
+      <div className="mt-10">
         <SubscribeForm />
       </div>
     </article>

@@ -33,7 +33,7 @@ export default async function Home({
   const pages = Math.ceil(total / limit);
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
+    <div className="mx-auto max-w-2xl px-5 py-6">
       {tag && (
         <div className="mb-8">
           <p className="text-sm text-muted">
@@ -45,9 +45,9 @@ export default async function Home({
       )}
 
       {posts.length === 0 ? (
-        <div className="text-center py-20">
-          <p className="text-2xl font-bold text-foreground mb-2">No posts yet</p>
-          <p className="text-muted">Check back soon — something&apos;s coming.</p>
+        <div className="text-center py-12">
+          <p className="text-lg font-bold text-foreground mb-1">No posts yet</p>
+          <p className="text-sm text-muted">Check back soon — something&apos;s coming.</p>
         </div>
       ) : (
         <div>
@@ -89,7 +89,7 @@ export default async function Home({
       )}
 
       {/* Subscribe section */}
-      <div className="mt-12">
+      <div className="mt-8">
         <SubscribeForm />
       </div>
     </div>

@@ -1,7 +1,185 @@
-// scripts/seed-post.ts
-import { prisma } from "../src/lib/prisma";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DT: Product & Engineering Squad Operating Model</title>
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 1.5cm;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1c1917;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  h1 {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #1c1917;
+  }
+  .subtitle {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    color: #78716c;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #e7e5e4;
+    color: #b45309;
+  }
+  h3 {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-top: 22px;
+    margin-bottom: 6px;
+    color: #1c1917;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  ul, ol {
+    padding-left: 24px;
+    margin-bottom: 10px;
+  }
+  li {
+    margin-bottom: 5px;
+    line-height: 1.65;
+  }
+  strong {
+    font-weight: 700;
+    color: #1c1917;
+  }
+  blockquote {
+    border-left: 3px solid #b45309;
+    background: #fdfcfb;
+    margin: 16px 0;
+    padding: 10px 16px;
+    font-style: italic;
+    color: #78716c;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+  blockquote p {
+    margin: 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7pt;
+    margin: 14px 0;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    border: 1px solid #e7e5e4;
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+  th {
+    background: #f1f0ef;
+    font-weight: 700;
+    text-align: left;
+    padding: 3px 5px;
+    border-bottom: 2px solid #e7e5e4;
+    border-right: 1px solid #e7e5e4;
+    font-size: 6pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  th:last-child { border-right: none; }
+  td {
+    padding: 3px 5px;
+    border-bottom: 1px solid #e7e5e4;
+    border-right: 1px solid #e7e5e4;
+    vertical-align: top;
+    line-height: 1.4;
+    font-size: 6.5pt;
+  }
+  td:last-child { border-right: none; }
+  .status-badge {
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .status-green  { background: #dcfce7; color: #166534; }
+  .status-yellow { background: #fef9c3; color: #854d0e; }
+  .status-red    { background: #fee2e2; color: #991b1b; }
+  .col-status {
+    max-width: 220px;
+    background: #fdfcfb;
+    border-left: 2px solid #e7e5e4;
+    font-style: italic;
+    color: #78716c;
+    font-size: 6pt;
+    line-height: 1.4;
+  }
+  th.col-status {
+    font-style: normal;
+    color: #1c1917;
+    background: #f1f0ef;
+  }
+  .cycle-flow {
+    text-align: center;
+    margin: 20px auto;
+  }
+  .cycle-flow svg {
+    width: 500px;
+    height: auto;
+  }
+  em { font-style: italic; }
+  a { color: #b45309; text-decoration: underline; }
 
-const content = `
+  /* ── Pagination ── */
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3 {
+    page-break-after: avoid;
+  }
+  blockquote {
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+</style>
+</head>
+<body>
+<h1>DT: Product & Engineering Squad Operating Model</h1>
+
 <h2>Why We Are Introducing the Squad Model</h2>
 <p>As Digital Turbine (DT) scales, our systems and teams become more interconnected. Monetization depends on reliability. Reliability affects partner trust. Latency impacts yield. A decision in one area often affects several others. Without clear structure, ownership can blur, priorities can compete, and teams can move in parallel instead of together.</p>
 <p>DT's growth through the acquisitions of Fyber, AdColony, and Mobile Posse transformed the company from a device-distribution business into a vertically integrated mobile growth platform spanning two pillars: <strong>On-Device Solutions (ODS)</strong>, which powers app discovery and distribution through carrier and OEM partnerships, and the <strong>App Growth Platform (AGP)</strong>, which provides mediation, programmatic exchange, and mobile video advertising infrastructure. That transformation created significant value — and significant organizational complexity. Multiple engineering hubs, overlapping platform components, and geographically distributed domain expertise all make disciplined execution harder.</p>
@@ -602,51 +780,6 @@ const content = `
 <p><em>Commitments are locked during the current cycle's Week 6 and finalized by the end of the Review, Adapt &amp; Commit session. Minor refinements allowed through Day 1 of the new cycle.</em></p>
 
 <p><strong>Overall Health Status:</strong> <span class="status-badge status-green">On Track</span> / <span class="status-badge status-yellow">At Risk</span> / <span class="status-badge status-red">Off Track</span></p>
-`;
 
-async function main() {
-  // Ensure admin user exists
-  const author = await prisma.user.findFirst({ where: { role: "admin" } });
-  if (!author) {
-    console.error("No admin user found. Run npm run seed first.");
-    process.exit(1);
-  }
-
-  // Upsert tags
-  const tagNames = ["strategy", "product", "engineering", "operating-model"];
-  const tagRecords = await Promise.all(
-    tagNames.map((name) =>
-      prisma.tag.upsert({
-        where: { slug: name },
-        update: {},
-        create: { name: name.replace(/-/g, " "), slug: name },
-      })
-    )
-  );
-
-  const slug = "dt-product-engineering-squad-operating-model";
-
-  const post = await prisma.post.upsert({
-    where: { slug },
-    update: { content, published: true, publishedAt: new Date() },
-    create: {
-      title: "DT: Product & Engineering Squad Operating Model",
-      slug,
-      excerpt:
-        "How DT organizes Product and Engineering into persistent, outcome-driven squads — with clear ownership, 6-week execution cycles, and measurable commitments that compound over time.",
-      content,
-      published: true,
-      featured: true,
-      type: "article",
-      publishedAt: new Date(),
-      authorId: author.id,
-      tags: { connect: tagRecords.map((t) => ({ id: t.id })) },
-    },
-  });
-
-  console.log(`✓ Post seeded: "${post.title}" (slug: ${post.slug})`);
-}
-
-main()
-  .catch((e) => { console.error(e); process.exit(1); })
-  .finally(() => prisma.$disconnect());
+</body>
+</html>

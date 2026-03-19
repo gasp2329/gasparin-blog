@@ -31,60 +31,60 @@ body {
   --tw-prose-headings: var(--color-foreground);
   --tw-prose-links: var(--color-accent);
   font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .prose h1 {
   font-family: var(--font-sans);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   color: var(--color-foreground);
 }
 
 .prose h2 {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  line-height: 1.4;
-  margin-top: 3rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
+  line-height: 1.35;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--color-border);
   color: var(--color-accent);
 }
 
 .prose h3 {
   font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  line-height: 1.4;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  line-height: 1.35;
+  margin-top: 1.5rem;
+  margin-bottom: 0.35rem;
   color: var(--color-foreground);
 }
 
 .prose p {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.875rem;
 }
 
 .prose ul {
   list-style-type: disc;
-  padding-left: 1.75rem;
-  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
 }
 
 .prose ol {
   list-style-type: decimal;
-  padding-left: 1.75rem;
-  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
 }
 
 .prose ul ul {
@@ -94,8 +94,8 @@ body {
 }
 
 .prose li {
-  margin-bottom: 0.45rem;
-  line-height: 1.75;
+  margin-bottom: 0.35rem;
+  line-height: 1.65;
 }
 
 .prose li::marker {
@@ -120,18 +120,25 @@ body {
 
 .prose img {
   border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--color-accent);
+  border-left: 3px solid var(--color-accent);
   background: var(--color-surface);
-  margin: 2rem 0;
-  padding: 1rem 1.5rem;
+  margin: 1.25rem 0;
+  padding: 0.625rem 1rem;
   border-radius: 0 0.375rem 0.375rem 0;
   font-style: italic;
   color: var(--color-muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.6;
 }
 
 .prose blockquote p {
@@ -140,21 +147,21 @@ body {
 
 .prose code {
   background: var(--color-surface-hover);
-  padding: 0.15rem 0.4rem;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.2rem;
+  font-size: 0.85em;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .prose pre {
   background: #1e1e1e;
   color: #d4d4d4;
-  padding: 1.25rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.375rem;
   overflow-x: auto;
-  margin: 1.5rem 0;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  margin: 1rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
 }
 
 .prose pre code {
@@ -167,7 +174,7 @@ body {
 .prose hr {
   border: none;
   border-top: 1px solid var(--color-border);
-  margin: 2.5rem 0;
+  margin: 2rem 0;
 }
 
 /* TipTap editor styles */
@@ -201,73 +208,16 @@ body {
 .tiptap a { color: var(--color-accent); text-decoration: underline; }
 .tiptap hr { border-color: var(--color-border); margin: 2rem 0; }
 
-/* Cycle flow diagram */
+/* Cycle flywheel diagram */
 .cycle-flow {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.375rem;
-  margin: 2rem 0;
-  padding: 1.5rem 1.75rem;
-  background: #fffbf5;
-  border: 1px solid #e8d5b0;
-  border-radius: 0.75rem;
-  font-family: var(--font-sans);
-}
-
-.cycle-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.cycle-num {
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  letter-spacing: 0;
-  flex-shrink: 0;
+  margin: 1.5rem auto;
 }
-
-.cycle-step--end .cycle-num {
-  background: #92400e;
-}
-
-.cycle-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-foreground);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.cycle-arrow {
-  width: 1.5rem;
-  height: 2px;
-  background: linear-gradient(90deg, #d97706, #f59e0b);
-  position: relative;
-  margin-bottom: 1.1rem;
-  flex-shrink: 0;
-}
-
-.cycle-arrow::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-left: 5px solid #f59e0b;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
+.cycle-flow svg {
+  width: 25%;
+  max-width: 130px;
+  height: auto;
 }
 
 /* Status badges — dashboard health indicators */
@@ -302,8 +252,8 @@ body {
 
 /* DRI narrative status column */
 th.col-status, td.col-status {
-  min-width: 220px;
-  max-width: 320px;
+  min-width: 180px;
+  max-width: 260px;
   background: #fdfcfb;
   border-left: 2px solid var(--color-border) !important;
   font-style: italic;
@@ -320,10 +270,13 @@ th.col-status {
 
 /* Table styles — used in both rendered posts and the editor */
 .prose table, .tiptap table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
-  font-size: 0.8rem;
-  margin: 1.75rem 0;
+  font-size: 0.75rem;
+  margin: 1rem 0;
   font-family: var(--font-sans);
   border: 1px solid var(--color-border);
 }
@@ -331,11 +284,11 @@ th.col-status {
   background: #f1f0ef;
   font-weight: 700;
   text-align: left;
-  padding: 0.55rem 1rem;
+  padding: 0.4rem 0.75rem;
   border-bottom: 2px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   color: var(--color-foreground);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -344,7 +297,7 @@ th.col-status {
   border-right: none;
 }
 .prose table td, .tiptap table td {
-  padding: 0.55rem 1rem;
+  padding: 0.4rem 0.75rem;
   border-bottom: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   color: var(--color-foreground);
